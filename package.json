@@ -1,0 +1,96 @@
+{
+  "name": "bitbucket-pipelines-deploy-to-azure",
+  "displayName": "Bitbucket Pipelines Deploy to Azure",
+  "description": "Deploy to Azure Web App from Bitbucket Pipelines.",
+  "version": "0.0.1",
+  "publisher": "mojall",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.goToSource",
+    "onCommand:extension.goToPipelines",
+    "onCommand:extension.addPipelinesConfigFile",
+    "onCommand:extension.addPipelinesConfigFileKudu",
+    "onCommand:extension.tryAzureAppService",
+    "onCommand:extension.tryDeployToAzurePlugin"
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.goToSource",
+        "title": "Bitbucket Pipelines Deploy-to-Azure: Go to Source"
+      },
+      {
+        "command": "extension.goToPipelines",
+        "title": "Bitbucket Pipelines Deploy-to-Azure: Go to Pipelines"
+      },
+      {
+        "command": "extension.addPipelinesConfigFile",
+        "title": "Bitbucket Pipelines Deploy-to-Azure: Add Pipelines .yml to Deploy to Azure Web App (FTP)"
+      },
+      {
+        "command": "extension.addPipelinesConfigFileKudu",
+        "title": "Bitbucket Pipelines Deploy-to-Azure: Add Pipelines .yml to Deploy to Azure Web App (Kudu)"
+      },
+      {
+        "command": "extension.tryAzureAppService",
+        "title": "Bitbucket Pipelines Deploy-to-Azure: Try Azure App Service"
+      },
+      {
+        "command": "extension.tryDeployToAzurePlugin",
+        "title": "Bitbucket Pipelines Deploy-to-Azure: Try Deploy-to-Azure Plug-in"
+      }
+    ],
+    "keybindings": [
+        {
+            "command": "extension.goToSource",
+            "key": "ctrl+j s",
+            "mac": "ctrl+j s"
+        },
+        {
+            "command": "extension.goToPipelines",
+            "key": "ctrl+j p",
+            "mac": "ctrl+j p"
+        },
+        {
+            "command": "extension.addPipelinesConfigFile",
+            "key": "ctrl+j c",
+            "mac": "ctrl+j c"
+        },
+        {
+            "command": "extension.addPipelinesConfigFileKudu",
+            "key": "ctrl+j k",
+            "mac": "ctrl+j k"
+        },
+        {
+            "command": "extension.tryAzureAppService",
+            "key": "ctrl+j a",
+            "mac": "ctrl+j a"
+        },
+        {
+            "command": "extension.tryDeployToAzurePlugin",
+            "key": "ctrl+j d",
+            "mac": "ctrl+j d"
+        }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "typescript": "^1.8.5",
+    "vscode": "^0.11.0"
+  },
+  "dependencies": {
+    "git-rev-2": "^0.1.0",
+    "github-url-from-git": "^1.4.0",
+    "parse-git-config": "^0.4.2"
+  }
+}
